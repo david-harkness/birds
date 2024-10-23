@@ -7,3 +7,5 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+ActiveRecord::Base.connection.execute("COPY nodes from '#{Rails.root.join('db','nodes.csv')}' delimiter ',' CSV header")
