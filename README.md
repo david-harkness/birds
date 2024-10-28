@@ -74,12 +74,13 @@ Finding Depth of root
 
 ```
 
+## SQL for finding all children of a set of nodes that may have birds
 ```sql
-## SQL for finding all children of a node that have a bird
-|WITH RECURSIVE  path_1 AS (
-      select id, parent_id from nodes where id = 2100480
+qry = %|WITH RECURSIVE  path_1 AS (
+      select id, parent_id from nodes where id in (?)
       union all
-      select  e.id, e.parent_id from nodes e join path_1 on path_1.id = e.parent_id
+      select  e.id, e.parent_id from nodes e join path_1 on path_1.id = e.parent_id where e.id not in (?)
       ) cycle id  set is_cycle using cycle_path
-      select birds.* from path_1, birds where node_id=path_1.id
+select birds.* from path_1, birds where node_id=path_1.id|
+
 ```

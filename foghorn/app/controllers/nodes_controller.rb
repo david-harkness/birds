@@ -10,9 +10,8 @@ class NodesController < ApplicationController
 
   def birds
     # TODO: Hacky. Short on time
-    nodes = Node.find(params[:ids].split('/'))
-    birds = nodes.map{|n| n.all_child_birds}.flatten.uniq # TODO: N + 1
-    # TODO: Need to create a map a unique map of node ids, join to birds table.
+    nodes = params[:ids].split('/')
+    birds = Bird.all_child_birds(nodes)
     render json: birds
 
   end
