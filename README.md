@@ -4,12 +4,18 @@ Query checks for common elements in path. Closest match is LCA, last match is ro
 Uses recursion to find depth of LCA
 
 Includes sanity check for loops in nodes.
+A minor graphical demo is included to visualize data.
+
 
 ## Running
 ```shell
+cd foghorn
 rails server
 ```
 
+## Demo using D3
+* http://localhost:3000/nodes/demo
+ 
 ## Samples
 * http://localhost:3000/nodes/2100480/common_ancestors/2100492
 * http://localhost:3000/nodes/2100483/common_ancestors/2100492
