@@ -12,7 +12,8 @@ We have an adjacency list that creates a tree of nodes where a child's `parent_i
 Please make an API using PostgreSQL and Ruby (rails, sinatra, cuba - your choice) that has two endpoints:
 
 ### 1. Common Ancestor 
-`/nodes/:node_a_id/common_ancestors/:node_b_id` - It should return the `root_id`, `lowest_common_ancestor_id`, and `depth` of tree of the lowest common ancestor that those two node ids share.
+`/nodes/:node_a_id/common_ancestors/:node_b_id` - It should return the `root_id`, `lowest_common_ancestor_id`, 
+and `depth` of tree of the lowest common ancestor that those two node ids share.
 
 For example, given the data for nodes:
 ```
@@ -24,6 +25,13 @@ For example, given the data for nodes:
  4430546 |       125
  5497637 |   4430546
 ```
+      130              1
+      125              2
+2820230 4430546        3
+        5497637        4
+
+
+
 
 `/nodes/5497637/common_ancestors/2820230` should return
 `{root_id: 130, lowest_common_ancestor: 125, depth: 2}`
