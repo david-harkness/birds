@@ -23,6 +23,12 @@ rails server
 * http://localhost:3000/nodes/2100480/common_ancestors/2100492
 * http://localhost:3000/nodes/2100483/common_ancestors/2100492
 
+## Bird Samples
+* http://localhost:3000/nodes/birds/2071178/2100482
+* http://localhost:3000/nodes/birds/2100482
+* http://localhost:3000/nodes/birds/2100490
+* http://localhost:3000/nodes/birds/2100480
+
 ## Testing
 ```shell
 rails test
