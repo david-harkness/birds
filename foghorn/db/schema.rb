@@ -10,11 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2024_10_23_144536) do
+ActiveRecord::Schema[8.1].define(version: 2024_10_28_180406) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "birds", force: :cascade do |t|
+    t.string "name"
+    t.bigint "node_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["node_id"], name: "index_birds_on_node_id"
+  end
+
+  create_table "employees", primary_key: "employee_id", id: :serial, force: :cascade do |t|
+    t.string "full_name", null: false
+    t.integer "manager_id"
+  end
 
   create_table "nodes", force: :cascade do |t|
     t.bigint "parent_id"
   end
+
+  add_foreign_key "birds", "nodes"
 end

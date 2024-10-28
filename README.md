@@ -6,10 +6,13 @@ Uses recursion to find depth of LCA
 Includes sanity check for loops in nodes.
 A minor graphical demo is included to visualize data.
 
+A bird can be created and added to any node
+
 
 ## Running
 ```shell
 cd foghorn
+bin/rails db:seed
 rails server
 ```
 
@@ -25,6 +28,12 @@ rails server
 rails test
 ```
 
+## Birds
+```ruby
+b = Node.first.birds.new(name: 'duck')
+b.save
+Node.first.birds => [#<Bird:0x000000012a3ff8d8 id: 1, name: "duck",...
+```
 
 ## Seeds
 Using direct file to postgres to speed up loading of node data

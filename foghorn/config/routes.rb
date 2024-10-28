@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :birds
   resources :nodes, only: [] do
     get "common_ancestors/:id", action: :common_ancestors, as: :common_ancestors
     collection do
