@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     get "common_ancestors/:id", action: :common_ancestors, as: :common_ancestors
     collection do
       get :demo
+      get "birds/*ids", action: :birds, as: :birds
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

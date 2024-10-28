@@ -33,7 +33,12 @@ rails test
 b = Node.first.birds.new(name: 'duck')
 b.save
 Node.first.birds => [#<Bird:0x000000012a3ff8d8 id: 1, name: "duck",...
+
 ```
+## Bird Sample
+Takes a / seperated list of node ids
+Birds are not optimized, out of time to to work on this.
+* http://localhost:3000/nodes/birds/76571/109291
 
 ## Seeds
 Using direct file to postgres to speed up loading of node data

@@ -54,7 +54,10 @@ if a==b, it should return itself
 
 ### 2. Birds
 
-Another endpoint `/birds` - The second requirement for this project involves considering a second model, birds. Nodes have_many birds and birds belong_to nodes. Our second endpoint should take a list of `node_ids` and return the ids of the birds that belong to any of those nodes or any descendant nodes.
+Another endpoint `/birds` - The second requirement for this project involves considering a second model, birds.
+Nodes have_many birds and birds belong_to nodes. 
+Our second endpoint should take a list of `node_ids` 
+and return the ids of the birds that belong to any of those nodes or any descendant nodes.
 
 ## Submission
 
