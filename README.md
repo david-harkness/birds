@@ -73,3 +73,13 @@ Finding Depth of root
       select max(depth) as depth_lca from path_1
 
 ```
+
+```sql
+## SQL for finding all children of a node that have a bird
+|WITH RECURSIVE  path_1 AS (
+      select id, parent_id from nodes where id = 2100480
+      union all
+      select  e.id, e.parent_id from nodes e join path_1 on path_1.id = e.parent_id
+      ) cycle id  set is_cycle using cycle_path
+      select birds.* from path_1, birds where node_id=path_1.id
+```
