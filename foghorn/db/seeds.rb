@@ -8,4 +8,5 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# Quick Load Node data
 ActiveRecord::Base.connection.execute("COPY nodes from '#{Rails.root.join('db','nodes.csv')}' delimiter ',' CSV header")

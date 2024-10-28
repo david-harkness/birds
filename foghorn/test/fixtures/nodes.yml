@@ -1,7 +1,41 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+#     1          alone
+#    2    3
+#  4  5   |
+#  6      7
+#       8   9
 one:
-  partent_id: one
+  parent: nil
 
 two:
-  partent_id: two
+  parent: one
+
+three:
+  parent: one
+
+four:
+  parent: two
+
+five:
+  parent: two
+
+six:
+  parent: four
+
+seven:
+  parent: three
+
+eight:
+  parent: seven
+nine:
+  parent: seven
+
+alone:
+  parent: nil
+
+loop_parent:
+  parent: loop_child
+
+loop_child:
+  parent: loop_parent

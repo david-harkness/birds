@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :nodes
+  resources :nodes, only: [] do
+    get "common_ancestors/:id", action: :common_ancestors, as: :common_ancestors
+    collection do
+      get :demo
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
