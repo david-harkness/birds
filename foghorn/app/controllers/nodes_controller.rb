@@ -8,10 +8,10 @@ class NodesController < ApplicationController
     @whole_tree = Node.whole_tree
   end
 
+  # http://localhost:3000/nodes/birds/2100480
   def birds
-    nodes = bird_params.split('/')
-    birds = Bird.all_child_birds(nodes)
-    render json: birds
+    nodes = bird_params.split("/")
+    render json: Bird.all_child_birds(nodes)
   end
 
   private

@@ -14,6 +14,19 @@ class NodesControllerTest < ActionDispatch::IntegrationTest
     @lp = nodes(:loop_parent)
     @lc = nodes(:loop_child)
     @alone = nodes(:alone)
+    @bird1 = birds(:one)
+    @bird2 = birds(:two)
+  end
+
+  test "birds" do
+    get birds_nodes_path([ @bird1.id, @bird2.id ])
+    assert_response :success
+    answer = @response.parsed_body
+    assert answer.any? { |x| x[:id] == @bird1.id }
+    assert answer.any? { |x| x[:id] == @bird2.id }
+    assert answer.any? { |x| x[:node_id] == @n1.id }
+    assert answer.any? { |x| x[:node_id] == @n2.id }
+    # Could include test to make sure right node is attached to correct bird
   end
 
   test "top and child have top as lca" do

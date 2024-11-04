@@ -10,8 +10,7 @@ class Bird < ApplicationRecord
       ) cycle id  set is_cycle using cycle_path
       select birds.* from path_1, birds where node_id=path_1.id|
 
-      Bird.find_by_sql([qry, *ids, *ids])
+      Bird.find_by_sql([ qry, *ids, *ids ])
     end
-
   end
 end

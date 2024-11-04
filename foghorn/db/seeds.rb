@@ -9,13 +9,13 @@
 #   end
 
 # Quick Load Node data
-ActiveRecord::Base.connection.execute("COPY nodes from '#{Rails.root.join('db','nodes.csv')}' delimiter ',' CSV header")
+ActiveRecord::Base.connection.execute("COPY nodes from '#{Rails.root.join('db', 'nodes.csv')}' delimiter ',' CSV header")
 [
-  [2100480,'duck'],
-  [2100482,'goose'],
-  [2100490,'eagle'],
-  [2071178,'swan'], # end of its own chain
-].each do |node_id,bird|
+  [ 2100480, 'duck' ],
+  [ 2100482, 'goose' ],
+  [ 2100490, 'eagle' ],
+  [ 2071178, 'swan' ] # end of its own chain
+].each do |node_id, bird|
   puts node_id
   puts bird
   n = Node.find(node_id)

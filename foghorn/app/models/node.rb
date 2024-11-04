@@ -1,6 +1,6 @@
 class Node < ApplicationRecord
-  belongs_to :parent, class_name: 'Node', required: false
-  has_many :children, class_name: 'Node', foreign_key: :parent_id, dependent: :destroy
+  belongs_to :parent, class_name: "Node", required: false
+  has_many :children, class_name: "Node", foreign_key: :parent_id, dependent: :destroy
   has_many :birds, dependent: :destroy
 
   scope :top_level, -> { where(parent_id: nil) }
@@ -13,7 +13,7 @@ class Node < ApplicationRecord
       ) cycle id  set is_cycle using cycle_path
       select birds.* from path_1, birds where node_id=path_1.id|
 
-    Bird.find_by_sql([qry, self.id])
+    Bird.find_by_sql([ qry, self.id ])
   end
 
   class << self
@@ -35,7 +35,7 @@ class Node < ApplicationRecord
       ) cycle id  set is_cycle using cycle_path
 
       select max(depth) as depth_lca from path_1 |
-      Node.find_by_sql([qry, lca_id]).first&.depth_lca
+      Node.find_by_sql([ qry, lca_id ]).first&.depth_lca
     end
 
     def format_answer(id_1, id_2)
@@ -56,7 +56,7 @@ class Node < ApplicationRecord
         #{get_recursion('path_1')},
         #{get_recursion('path_2')}
         select id, is_cycle from path_1 where id in (select id from path_2)|
-      Node.find_by_sql([qry, id_1, id_2])
+      Node.find_by_sql([ qry, id_1, id_2 ])
     end
 
     private
@@ -83,6 +83,5 @@ class Node < ApplicationRecord
       end
       { name: rec.id, children: h[rec.id] }
     end
-
   end
 end

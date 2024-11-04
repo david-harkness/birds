@@ -17,7 +17,7 @@ rails server
 ```
 
 ## Demo using D3
-* http://localhost:3000/nodes/demo
+* http://localhost:3000/
  
 ## Samples
 * http://localhost:3000/nodes/2100480/common_ancestors/2100492
@@ -39,8 +39,8 @@ rails test
 b = Node.first.birds.new(name: 'duck')
 b.save
 Node.first.birds => [#<Bird:0x000000012a3ff8d8 id: 1, name: "duck",...
-
 ```
+
 ## Bird Sample
 Takes a / seperated list of node ids
 Birds are not optimized, out of time to to work on this.
